@@ -29,8 +29,9 @@ final class ViewController: UIViewController {
                           duration: 0.8,
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
-            self?.coreAnimationView.backgroundColor = self!.viewRed ? .green : .red
-            self?.viewRed.toggle() },
+            guard let self else { return }
+            self.coreAnimationView.backgroundColor = self.viewRed ? .green : .red
+            self.viewRed.toggle() },
                           completion: nil)
     }
     
